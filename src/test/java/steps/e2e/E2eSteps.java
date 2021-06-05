@@ -5,9 +5,12 @@ import cucumber.annotation.en.When;
 import cucumber.table.DataTable;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import pages.CadUsuarioPage;
+import pages.CarrinhoPage;
+import pages.LoginPage;
+import pages.MinhaContaPage;
 import robo.Robo;
 import static org.junit.Assert.assertEquals;
-import paginas.*;
 import robo.Automacao;
 
 public class E2eSteps {

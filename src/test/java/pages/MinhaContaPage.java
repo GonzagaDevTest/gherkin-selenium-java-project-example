@@ -1,4 +1,4 @@
-package paginas;
+package pages;
 
 public class MinhaContaPage extends AbstractPage {
     public String getTitle(){
