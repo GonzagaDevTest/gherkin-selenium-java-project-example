@@ -1,11 +1,11 @@
 # language: pt
-Funcionalidade: Realizar compra
+Funcionalidade: Realizar cadastro de um novo usuário
 
   @roteiro @wip
   Cenario: Realizar compra para que possa vestir melhor
 
     Dado que o usuário acessou a tela de cadastro de usuário
-    E na pagina de cadastro de usuário digitar "automacao1998@email.com.br" no campo "email"
+    E na pagina de cadastro de usuário digitar "automacao2002@email.com.br" no campo "email"
     E na pagina de cadastro de usuário clicar no elemento "btnCreate"
     E na pagina de cadastro de usuário o elemento "formCreate" está presente
     E na pagina de cadastro de usuário clicar no elemento "generoMasculino"

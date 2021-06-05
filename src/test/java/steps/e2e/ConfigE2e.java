@@ -8,6 +8,8 @@ public class ConfigE2e implements SetupClass {
 
     @Override
     public void setup() {
-        robo.iniciarAutomacao();
+        if(Robo.getDriver() == null){
+            robo.iniciarAutomacao();
+        }
     }
 }

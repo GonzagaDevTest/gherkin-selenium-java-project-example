@@ -16,6 +16,7 @@ Obs.: Este projeto ainda não foi homologado com outros navegadores e SOs.
 ### Sugestão de melhorias futuras
 - Integrar o Allure Report
 - Converter o ambinete para Docker
+- Criar um passo que desfaça a operação realizada na funcionalidade `Realizar cadastro de um novo usuário`
 
 
 ## Passos para execução
