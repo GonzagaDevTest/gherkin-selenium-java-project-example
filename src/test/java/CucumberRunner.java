@@ -9,7 +9,7 @@ import static com.jayway.restassured.RestAssured.baseURI;
 import robo.Automacao;
 
 @RunWith(Cucumber.class)
-@Cucumber.Options(format={"pretty","html:reports/test-report"},tags= "@api")
+@Cucumber.Options(format={"pretty","html:reports/test-report"},tags= "@roteiro")
 
 public class CucumberRunner {
     protected static Automacao automacao = new Automacao();

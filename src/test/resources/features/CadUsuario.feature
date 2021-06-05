@@ -1,10 +1,10 @@
 Feature: Realizar compra
 
-  @roteiro @desafio @cadUsuario
+  @roteiro  @cadUsuario
   Scenario: Realizar compra para que possa vestir melhor
 
     Given que o usuário acessou a tela de cadastro de usuário
-    And na pagina de cadastro de usuário digitar "automacao1997@email.com.br" no campo "email"
+    And na pagina de cadastro de usuário digitar "automacao1998@email.com.br" no campo "email"
     And na pagina de cadastro de usuário clicar no elemento "btnCreate"
     And na pagina de cadastro de usuário o elemento "formCreate" está presente
     And na pagina de cadastro de usuário clicar no elemento "generoMasculino"
