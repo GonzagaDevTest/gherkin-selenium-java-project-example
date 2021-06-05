@@ -6,7 +6,6 @@ import robo.Robo;
 @RunWith(Cucumber.class)
 @Cucumber.Options(format={"pretty","html:reports/test-report"},  tags = "@roteiro")
 
-
 public class CucumberRunner {
     protected static Robo robo = new Robo();
 
