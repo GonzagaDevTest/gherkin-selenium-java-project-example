@@ -13,7 +13,7 @@ public class ApiSteps {
     private Robo robo;
 
     public ApiSteps() {
-        this.robo = new Robo();
+        this.robo = new Robo(new ConfigApi());
     }
 
     @Given("^que a consulta do usuário \"([^\"]*)\" tenha retonardo o status \"([^\"]*)\" e os atributos$")
@@ -28,7 +28,7 @@ public class ApiSteps {
     }
 
     @Given("^a requisição de POST retornou o status \"([^\"]*)\"$")
-    public void a_requisicao_de_POST_retornou_o_status(int statusEsperado, DataTable dataTable) { ;
+    public void a_requisicao_de_POST_retornou_o_status(int statusEsperado, DataTable dataTable) {
         given().
             body(robo.dataTableToJson(dataTable)).
             contentType(ContentType.JSON).
@@ -39,7 +39,7 @@ public class ApiSteps {
     }
 
     @When("^realizar a requisição de PATCH alterando os dados do usuário \"([^\"]*)\"$")
-    public void realizar_a_requisicaoo_de_PATCH_alterando_os_dados_do_usuário(String idUsuario, DataTable dataTable) {
+    public void realizar_a_requisicao_de_PATCH_alterando_os_dados_do_usuario(String idUsuario, DataTable dataTable) {
         Map<String, Object> bodyMap = robo.dataTableToMap(dataTable);
         given().
             body(robo.dataTableToJson(dataTable)).

@@ -3,23 +3,60 @@ package robo;
 import com.google.gson.JsonObject;
 import cucumber.table.DataTable;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import steps.SetupClass;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class Robo {
 	public Robo() {
+		}
+
+	public Robo(SetupClass  setup) {
+		try{
+			setup.setup();
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 
-	private WebDriver driver;
-	
-	public Robo(WebDriver driver) {
-		this.driver = driver;
+	private static WebDriver driver;
+
+	public static WebDriver getDriver() {
+		return driver;
+	}
+
+	public static void setDriver(WebDriver driver) {
+		Robo.driver = driver;
+	}
+
+	public void iniciarAutomacao(){
+		System.setProperty("webdriver.chrome.driver", getCaminhoDriver());
+		setDriver(new ChromeDriver());
+		getDriver().get("http://automationpractice.com");
+	}
+
+	public void fecharDriver(){
+		if (getDriver() != null){
+			getDriver().quit();
+		}
+	}
+
+	public String getCaminhoDriver(){
+		String so =  System.getProperty("os.name");
+		StringBuilder folderDrivers = new StringBuilder("drivers/");
+		if(so.equals("Linux")){
+			return folderDrivers.append("chromedriver-linux").toString();
+		}
+		System.err.println("#############################################################");
+		System.err.println("# Esta automação ainda não foi homologada com outros SOs ;) #");
+		System.err.println("##############################################################");
+		return folderDrivers.append("chromedriver.exe").toString();
+
 	}
 
 	public void aguardarEstarPresente(By componente) {

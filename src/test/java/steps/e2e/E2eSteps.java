@@ -3,7 +3,6 @@ import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
 import cucumber.table.DataTable;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import pages.CadUsuarioPage;
 import pages.CarrinhoPage;
@@ -11,10 +10,8 @@ import pages.LoginPage;
 import pages.MinhaContaPage;
 import robo.Robo;
 import static org.junit.Assert.assertEquals;
-import robo.Automacao;
 
 public class E2eSteps {
-    private WebDriver driver = new  Automacao().getDriver();
     private static Robo robo;
     private final MinhaContaPage minhaContaPage;
     private final LoginPage loginPage;
@@ -22,7 +19,7 @@ public class E2eSteps {
     private static CadUsuarioPage cadUsuarioPage;
 
     public E2eSteps() {
-        robo = new Robo(driver);
+        robo = new Robo(new ConfigE2e());
         minhaContaPage = new MinhaContaPage();
         loginPage = new LoginPage();
         carrinhoPage = new CarrinhoPage();
