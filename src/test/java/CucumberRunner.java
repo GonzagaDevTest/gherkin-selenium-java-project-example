@@ -1,29 +1,17 @@
 import cucumber.junit.Cucumber;
-
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-
-import static com.jayway.restassured.RestAssured.*;
-import static com.jayway.restassured.RestAssured.baseURI;
-import robo.Automacao;
+import robo.Robo;
 
 @RunWith(Cucumber.class)
-@Cucumber.Options(format={"pretty","html:reports/test-report"},tags= "@roteiro")
+@Cucumber.Options(format={"pretty","html:reports/test-report"},  tags = "@roteiro")
+
 
 public class CucumberRunner {
-    protected static Automacao automacao = new Automacao();
-
-    @BeforeClass
-    public static void abirSistema(){
-        automacao.iniciarAutomacao();
-        enableLoggingOfRequestAndResponseIfValidationFails();
-        baseURI = "https://reqres.in";
-        basePath = "/api";
-    }
+    protected static Robo robo = new Robo();
 
     @AfterClass
     public static  void fecharSistema(){
-        automacao.fecharDriver();
+        robo.fecharDriver();
     }
 }
