@@ -1,5 +1,6 @@
 package steps.api;
 
+import com.jayway.restassured.response.Response;
 import cucumber.annotation.en.Given;
 import cucumber.annotation.en.When;
 import cucumber.table.DataTable;
@@ -41,12 +42,14 @@ public class ApiSteps {
     @When("^realizar a requisição de PATCH alterando os dados do usuário \"([^\"]*)\"$")
     public void realizar_a_requisicao_de_PATCH_alterando_os_dados_do_usuario(String idUsuario, DataTable dataTable) {
         Map<String, Object> bodyMap = robo.dataTableToMap(dataTable);
+        Response response =
         given().
             body(robo.dataTableToJson(dataTable)).
             contentType(ContentType.JSON).
         when().
-            patch("/users/".concat(idUsuario)).
-        then().
+            patch("/users/".concat(idUsuario));
+
+        response.then().
             statusCode(200)
         .body("name", is(bodyMap.get("name")))
         .body("job", is(bodyMap.get("job")))
